@@ -1,7 +1,12 @@
+* {
+	margin: 0px;
+}
+
 
 html, body {
 	background-color: #ddd;	
 	overflow: auto;
+	height: 100%;
 	/*min-height: 100vh;*/
 }
 
@@ -15,14 +20,16 @@ nav {
 	margin-bottom: 0px;
 }
 
-.container {
-	/*min-height: 100vh;*/
+.body-container {
+	height: 100%;
 	margin-top: 0px;
-	/*background-color: #eee;*/
-	padding-top: 80px;
-	padding-bottom: 50px;
-	padding-left: 40px;
-	padding-right: 40px;
+	background-color: #fff;
+	padding-top: 20px;
+	margin-top: 50px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 
@@ -30,31 +37,28 @@ nav {
 	/*min-height: 100vh;*/
 }
 
-.footer {
-	background-color: #444;
-	height: 60px;
-}
-
-.footer-container {
-	background-color: #444;
-}
-
 .error {
 	color: red;
 }
 
-.outer-chatbox {
-	height: 400px;
+#chat-content {
+	background-color: #fff;
+	height: 100%;
 	overflow: auto;
+	padding: 20px;
+	padding-bottom: 0px;
+	margin-top: 50px;
+	margin-bottom: 86px;
 /*	overflow-y: hidden;
 	overflow-x: hidden;*/
 }
 
 .chatbox {
 	/*border: thin solid #ccc;*/
-	height: 400px;
-	margin-bottom: 20px;
+	height: 100%;
+
 	background-color: #fff;
+	
 }
 
 .friendlist {
@@ -94,7 +98,8 @@ nav {
 }
 
 .fromme{
-	color: #444;
+		background: #87ba2c;
+	color: #fff;
 	float: left;
 	border-bottom: thin solid #eee;
 	clear: both;
@@ -105,6 +110,7 @@ nav {
 	float: right;
 	border-bottom: thin #eee;
 	clear: both;
+
 }
 
 .bold {
@@ -112,7 +118,7 @@ nav {
 }
 
 .messageinput {
-	width: 80%;
+	width: 85%;
 	height: 45px;
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -120,6 +126,7 @@ nav {
 	padding-top: 0px;
 	margin-left: 10px;
 	padding-left: 10px;
+	padding-right: 10px;
 	border: thin solid #ddd;
 	border-radius: 5px;
 	margin-right: 10px;
@@ -140,6 +147,8 @@ nav {
 	height: 45px;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	margin-left: 10px;
+	margin-top: 0px; 
 	padding-bottom: 0px;
 	padding-left: 30px;
 	padding-top: 0px;
@@ -150,10 +159,16 @@ nav {
 	border-radius: 5px;
 }
 
-.whiteback {
-	background-color: #fff;
-	padding-top: 10px;
-	padding-bottom: 10px;
+.page-wrap {
+  margin-top: 0px; 
+}
+
+.footer {
+  padding: 20px;
+  background-color: #eee;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 

@@ -27,12 +27,12 @@ $friendshtml = '';
 foreach ($myfriends as $friend) {
 	$friendcount++;
 	if ($friendcount == 1) {
-		$friendshtml = $friendshtml . '<p class="friend active">' . $friend['name'] . '</p>';
+		$friendshtml2 = $friendshtml2 . '<li class="friend active">' . $friend['name'] . '</li>';
 		$activefriendmob = $friend['mob'];
 		$activefriendname = $friend['name'];
 		$name = $friend['user'];
 	} else {
-		$friendshtml = $friendshtml .  '<p class="friend inactive">' . $friend['name'] . '</p>';
+		$friendshtml2 = $friendshtml2 .  '<li class="friend inactive">' . $friend['name'] . '</li>';
 	}
 }
 
@@ -69,7 +69,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 			
 			$('#lastupdated').text('<?php echo $lastupdated; ?>');
 
-			$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
+			$(document).scrollTop($(document).height());
 
 		    $('.messageinput').keypress(function(e){
 		      if(e.keyCode==13)
@@ -91,7 +91,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 				newcontent = '<p class="chatmsg fromme"><span class="bold"> <?php echo $name; ?>: </span>' + message + '</p>';
 				newchatcontent = chatcontent + newcontent;
 				$('#chat-content').html(newchatcontent);
-				$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
+				$(document).scrollTop($(document).height());
 			});
 
 			refreshChat();	
@@ -109,7 +109,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 					
 				},'html');	
 
-			    $('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
+			   	$(document).scrollTop($(document).height());
 			    
   
 			}	
@@ -138,6 +138,9 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 	</head>
 
 	<body>
+
+	<div class="page-wrap">
+
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
@@ -154,6 +157,12 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav navbar-right">
+		      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Friends <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+			<?php echo $friendshtml2; ?> 		
+          </ul>
+        </li>
 		        <li><a href="./index.php?type=logout">Log out</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
@@ -164,62 +173,27 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 
 		<div class="container">
 
-		  	<div class="row fill">
+		  	<div class="row">
 
+				<div id="chat-content">
+			  		<?php
+			  			echo $chathtml;
+			  		?>
+			  	</div>
 
-			  	<div class="col-md-12">
-			  		
-			  		<div class="col-md-8 chatbox">
-
-						<div class="row">	
-							<div class="col-md-12 outer-chatbox">
-							<h3>Chat</h3><hr>
-							<br>
-							
-								<div id="chat-content">
-							  		<?php
-							  			echo $chathtml;
-							  		?>
-							  	</div>
-
-							</div>
-						</div>
-
-					  	<div class="row">	
-					  		
-						  <div class="form-group whiteback">
-						    <input class="messageinput" type="text" name="msg" placeholder="Type your message here...">
-						    <button type="submit" class="inputbutton btn btn-default">Send</button>
-						  </div>
-							
-						</div>
-					
-				  	</div>
-
-			  		<div class="col-md-1"></div>				  	
-
-				  	<div class="col-md-3 friendlist">
-				  		<h3>Friends List</h3><hr>
-				  		<?php
-				  			echo $friendshtml;
-				  		?>
-				  	</div>
-
-			  	</div>	
-	  				  	
-			</div>
-		
-		  	
 		</div>
+	
+	</div> <!-- end page wrap -->
 
-
-	<div class="footer navbar-fixed-bottom">
-      <div class="container footer-container">
-      	<span style="display: none;" id="lastupdated"></span>
-        <p>Place sticky footer content here.</p>
-      </div>
-    </div>
+	<div class="footer">
+		<div class="container">	
+		    <input class="messageinput" type="text" name="msg" placeholder="Type your message here...">
+		    <button type="submit" class="inputbutton btn btn-default">Send</button>
+		</div>
 		
+	</div>
+					
+
 	</body>
 
 </html>
