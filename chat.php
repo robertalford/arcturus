@@ -105,11 +105,11 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 				lastupdated = $('#lastupdated').text();
 				chathtml = $('#chat-content').html();
 
-				$.get( "/getallmsgs.php?mob1=" + mob + "&mob2=" + activefriendmob + "&name=" + name + "&activefriendname=" + activefriendname + "&lastupdated=" + lastupdated, function( data ) {
+				$.get( "/getallmsgs.php?mob1=" + mob + "&mob2=" + activefriendmob + "&name=" + name + "&activefriendname=" + activefriendname, function( data ) {
 					if (data == '') {
 						// Do nothing
 					} else {
-						$('#chat-content').html(chathtml + data);
+						$('#chat-content').html(data);
 					}
 					//console.log(data);
 				});	
@@ -132,7 +132,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 					}
 				});	
 			    
-			    setTimeout(refreshChat, 5000);
+			    setTimeout(refreshChat, 2000);
   
 			}
 
