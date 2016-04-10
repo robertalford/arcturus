@@ -173,7 +173,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 
 		<div class="container">
 
-		  	<div class="row">
+		  	<div class="row containerrow">
 
 				<div id="chat-content">
 			  		<?php
@@ -190,7 +190,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 		    <input class="messageinput" type="text" name="msg" placeholder="Type your message here...">
 		    <button type="submit" class="inputbutton btn btn-default">Send</button>
 		</div>
-		
+
 	</div>
 					
 
