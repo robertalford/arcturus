@@ -30,6 +30,7 @@ foreach ($myfriends as $friend) {
 		$friendshtml = $friendshtml . '<p class="friend active">' . $friend['name'] . '</p>';
 		$activefriendmob = $friend['mob'];
 		$activefriendname = $friend['name'];
+		$name = $friend['user'];
 	} else {
 		$friendshtml = $friendshtml .  '<p class="friend inactive">' . $friend['name'] . '</p>';
 	}
@@ -53,6 +54,8 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 
 	<head>
 		<title>Project Arcturus - Chat</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -94,6 +97,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 				newcontent = '<p class="chatmsg fromme"><span class="bold"> Rob: </span>' + message + '</p>';
 				newchatcontent = chatcontent + newcontent;
 				$('#chat-content').html(newchatcontent);
+				$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
 			});
 
 			refreshChat();

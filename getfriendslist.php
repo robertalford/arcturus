@@ -10,8 +10,9 @@ $list = array();
 
 foreach ($friendslist as $account) {
 	if ($account['mob'] == $mob) {
-
+		$username = $account['name'];
 		foreach ($account['friends'] as $friend) {
+			$afriend['user'] = $username;
 			$afriend['name'] = $friend['name'];
 			$afriend['mob'] = $friend['mob'];
 			array_push($list, $afriend);
