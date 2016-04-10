@@ -44,7 +44,7 @@ nav {
 }
 
 .outer-chatbox {
-	height: 600px;
+	height: 400px;
 	overflow: auto;
 /*	overflow-y: hidden;
 	overflow-x: hidden;*/
@@ -52,7 +52,7 @@ nav {
 
 .chatbox {
 	/*border: thin solid #ccc;*/
-	height: 600px;
+	height: 400px;
 	margin-bottom: 20px;
 	background-color: #fff;
 }
