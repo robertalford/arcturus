@@ -94,9 +94,10 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 				$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
 			});
 
-			refreshChat();		
+			refreshChat();	
 
-			function refreshChat(){
+
+			function getNewMsgs(){
 
 				name = '<?php echo $name; ?>';
 				mob = '<?php echo $mob; ?>';
@@ -105,12 +106,25 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 
 				$.get( "/getallmsgs.php?mob1=" + mob + "&mob2=" + activefriendmob + "&name=" + name + "&activefriendname=" + activefriendname, function( data ) {
 					$('#chat-content').html(data);
-					console.log('why!?!?!?!');
+					
 				},'html');	
-			    
 
 			    $('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
-			    setTimeout(refreshChat, 2000);
+			    
+  
+			}	
+
+			function refreshChat(){
+
+				mob = '<?php echo $mob; ?>';
+
+				$.get( "/newmsgcheck.php?tomob=" + mob, function( data ) {
+					if (data == '1') {
+						getNewMsgs();
+					}
+				});	
+			    
+			    setTimeout(refreshChat, 1000);
   
 			}
 

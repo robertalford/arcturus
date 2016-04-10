@@ -35,6 +35,8 @@ if ($result->num_rows > 0) {
 }
 
 // TODO: Remove the records from the newmsgq
+$sql2= "DELETE * FROM newmsgq WHERE tomob = $tomob";
+$result2 = $conn->query($sql2);
 
 $conn->close();
 
