@@ -1,0 +1,159 @@
+
+html, body {
+	background-color: #ddd;	
+	overflow: auto;
+	/*min-height: 100vh;*/
+}
+
+nav {
+	padding-left: 10px;
+	padding-right: 20px;
+	margin-bottom: 0px;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.container {
+	/*min-height: 100vh;*/
+	margin-top: 0px;
+	/*background-color: #eee;*/
+	padding-top: 80px;
+	padding-bottom: 50px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+
+.fill {
+	/*min-height: 100vh;*/
+}
+
+.footer {
+	background-color: #444;
+	height: 60px;
+}
+
+.footer-container {
+	background-color: #444;
+}
+
+.error {
+	color: red;
+}
+
+.outer-chatbox {
+	height: 600px;
+	overflow: auto;
+/*	overflow-y: hidden;
+	overflow-x: hidden;*/
+}
+
+.chatbox {
+	/*border: thin solid #ccc;*/
+	height: 600px;
+	margin-bottom: 20px;
+	background-color: #fff;
+}
+
+.friendlist {
+	/*border: thin solid #ccc;*/
+	height: 300px;
+	/*padding-top: 10px;*/
+	background-color: #fff;
+}
+
+.friend {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin: 0px;
+}
+
+.friend.active {
+	background-color: #eee;
+}
+
+.friend.inactive {
+	cursor: pointer;
+}
+
+.friend.inactive:hover {
+	background-color: #f7f7f7;
+	color: #666;
+}
+
+.chatmsg {
+	color: #666;
+	background-color: #eee;
+	border-radius: 10px;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.fromme{
+	color: #444;
+	float: left;
+	border-bottom: thin solid #eee;
+	clear: both;
+}
+
+.tome{
+	color: #444;
+	float: right;
+	border-bottom: thin #eee;
+	clear: both;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.messageinput {
+	width: 80%;
+	height: 45px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-left: 10px;
+	padding-left: 10px;
+	border: thin solid #ddd;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.textinput {
+	width: 100%;
+	height: 45px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	border: thin solid #e7e7e7;
+	border-radius: 5px;
+}
+
+.inputbutton, .inputbutton:hover, .inputbutton:active, .inputbutton:visited {
+	height: 45px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-left: 30px;
+	padding-top: 0px;
+	padding-right: 30px;
+	border: thin solid #6ca508;
+	background-color: #6ca508;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.whiteback {
+	background-color: #fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
