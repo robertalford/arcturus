@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 } 
 
 // GET the data
-$sql = "SELECT * FROM messages;
+$sql = "SELECT * FROM messages";
 $result = $conn->query($sql);
 
 echo $result;
