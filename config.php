@@ -3,20 +3,17 @@
 
 $domain = 'http://' . $_SERVER['SERVER_NAME'];
 
-switch ($domain) {
-    case 'http://localhost':
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
-        $dbname = "arcturus";
-        break;
-    default:
-        $servername = "us-cdbr-iron-east-03.cleardb.net";
-        $username = "b362c3d1b6669a";
-        $password = "1a6a7653";
-        $dbname = "arcturus";
-        break;
-}
+// $servername = "us-cdbr-iron-east-03.cleardb.net";
+// $username = "b362c3d1b6669a";
+// $password = "1a6a7653";
+// $dbname = "heroku_9d5761ca16500a6";
+
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "arcturus";
+
+//mysql://b362c3d1b6669a:1a6a7653@us-cdbr-iron-east-03.cleardb.net/heroku_9d5761ca16500a6?reconnect=true
 
 
 // The temporary list of accounts
