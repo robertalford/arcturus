@@ -42,7 +42,7 @@ $d = new DateTime( date('Y-m-d H:i:s.'.$micro, $t) );
 $lastupdated = $d->format("Y-m-d H:i:s.u"); 
 
 // Get the chat log for the active user & generate html (server side)
-$chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=" . $activefriendmob . "&name=" . $name . "&activefriendname=" . $activefriendname . "&lastupdated=" . $lastupdated);
+$chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=" . $activefriendmob . "&name=" . $name . "&activefriendname=" . $activefriendname);
 
 ?>
 
@@ -114,6 +114,10 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 						$('#chat-content').html(chathtml + data);
 					}
 					//console.log(data);
+				});	
+
+				$.get( "/getdatetime.php", function( data ) {
+					$('#lastupdated').text(data);
 				});	
 
 				$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);

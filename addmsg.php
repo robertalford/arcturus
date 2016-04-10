@@ -1,9 +1,18 @@
 <?php
 
-error_reporting(E_ALL);
-error_reporting(-1);
+$domain = 'http://' . $_SERVER['SERVER_NAME'];
 
-include './config.php';
+if ($domain == 'http://localhost') {
+	$servername = "localhost";
+	$username = "root";
+	$password = "root";
+	$dbname = "arcturus";
+} else {
+	$servername = "us-cdbr-iron-east-03.cleardb.net";
+	$username = "b362c3d1b6669a";
+	$password = "1a6a7653";
+	$dbname = "heroku_9d5761ca16500a6";
+}
 
 // Get the mob of the two users in chat
 $frommob = $_POST['frommob'];

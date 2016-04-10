@@ -32,7 +32,12 @@ if ($conn->connect_error) {
 } 
 
 // GET the data
-$sql = "SELECT frommob, tomob, datetime, msg FROM messages WHERE (frommob = '$mob1' or frommob = '$mob2') and (tomob = '$mob1' or tomob = '$mob2') and datetime > $lastupdated";
+if ($lastupdated == '') {
+    $sql = "SELECT frommob, tomob, datetime, msg FROM messages WHERE (frommob = '$mob1' or frommob = '$mob2') and (tomob = '$mob1' or tomob = '$mob2')";
+} else {
+    $sql = "SELECT frommob, tomob, datetime, msg FROM messages WHERE (frommob = '$mob1' or frommob = '$mob2') and (tomob = '$mob1' or tomob = '$mob2') and datetime > $lastupdated";
+}
+
 $result = $conn->query($sql);
 
 // Create an array to hold the data
