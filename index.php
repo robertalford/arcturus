@@ -74,7 +74,7 @@ if (isset($_COOKIE['auth'])) {
 		  </div><!-- /.container-fluid -->
 		</nav>
 
-		<div class="container">
+		<div style="margin-top: 50px;" class="container">
 
 		  	<div class="row fill">
 
@@ -105,11 +105,6 @@ if (isset($_COOKIE['auth'])) {
 		</div>
 
 
-	<div class="footer navbar-fixed-bottom">
-      <div class="container footer-container">
-        <p>Place sticky footer content here.</p>
-      </div>
-    </div>
 		
 	</body>
 
