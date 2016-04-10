@@ -71,16 +71,10 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 
 			$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
 
-			$(function() {
-			    $("form input").keypress(function (e) {
-			        if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
-			            $('button[type=submit] .btn-default').click();
-			            return false;
-			        } else {
-			            return true;
-			        }
-			    });
-			});
+		    $('.messageinput').keypress(function(e){
+		      if(e.keyCode==13)
+		      $('.inputbutton').click();
+		    });
 
 			$( ".inputbutton" ).click(function() {
 				message = $('.messageinput').val();
