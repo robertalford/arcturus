@@ -15,7 +15,7 @@ if (!isset($_COOKIE['auth'])) {
 // $mob = $cookie['mob'];
 // $name = $cookie['name'];
 $mob = $_COOKIE['auth'];
-$name = 'Rob';
+// $name = 'Rob';
 
 
 // Get the friends list & generate html (server side)
@@ -94,44 +94,20 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 				$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
 			});
 
-			refreshChat();
+			refreshChat();		
 
-			function getNewMsgs(){
+			function refreshChat(){
 
 				name = '<?php echo $name; ?>';
 				mob = '<?php echo $mob; ?>';
 				activefriendmob = '<?php echo $activefriendmob; ?>';
 				activefriendname = '<?php echo $activefriendname; ?>';
-				lastupdated = $('#lastupdated').text();
-				chathtml = $('#chat-content').html();
 
 				$.get( "/getallmsgs.php?mob1=" + mob + "&mob2=" + activefriendmob + "&name=" + name + "&activefriendname=" + activefriendname, function( data ) {
-					if (data == '') {
-						// Do nothing
-					} else {
-						$('#chat-content').html(data);
-					}
-					//console.log(data);
-				});	
-
-				$.get( "/getdatetime.php", function( data ) {
-					$('#lastupdated').text(data);
-				});	
-
-				$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
-  
-			}			
-
-			function refreshChat(){
-
-				mob = '<?php echo $mob; ?>';
-				$.get( "/newmsgcheck.php?tomob=" + mob, function( data ) {
-					if (data == '1') {
-						getNewMsgs();
-						//console.log('There are new message... go and get them!!');
-					}
+					$('#chat-content').html(data);
 				});	
 			    
+			    $('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
 			    setTimeout(refreshChat, 2000);
   
 			}
