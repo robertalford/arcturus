@@ -88,7 +88,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 			    })
 
 				chatcontent = $('#chat-content').html();
-				newcontent = '<p class="chatmsg fromme"><span class="bold"> Rob: </span>' + message + '</p>';
+				newcontent = '<p class="chatmsg fromme"><span class="bold"> <?php echo $name; ?>: </span>' + message + '</p>';
 				newchatcontent = chatcontent + newcontent;
 				$('#chat-content').html(newchatcontent);
 				$('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
@@ -105,8 +105,10 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 
 				$.get( "/getallmsgs.php?mob1=" + mob + "&mob2=" + activefriendmob + "&name=" + name + "&activefriendname=" + activefriendname, function( data ) {
 					$('#chat-content').html(data);
-				});	
+					console.log('why!?!?!?!');
+				},'html');	
 			    
+
 			    $('.outer-chatbox').animate({ scrollTop: $('.outer-chatbox').get(0).scrollHeight}, 2000);
 			    setTimeout(refreshChat, 2000);
   

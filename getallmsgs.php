@@ -1,6 +1,6 @@
 <?php
 
-header('Content-Type: application/json');
+
 
 $domain = 'http://' . $_SERVER['SERVER_NAME'];
 
