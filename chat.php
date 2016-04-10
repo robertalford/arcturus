@@ -15,6 +15,7 @@ if (!isset($_COOKIE['auth'])) {
 // $mob = $cookie['mob'];
 // $name = $cookie['name'];
 $mob = $_COOKIE['auth'];
+$friendmob = $_GET['friendmob'];
 // $name = 'Rob';
 
 
@@ -25,14 +26,26 @@ $myfriends = json_decode($myfriends, true);
 $friendcount = 0;
 $friendshtml = '';
 foreach ($myfriends as $friend) {
-	$friendcount++;
-	if ($friendcount == 1) {
-		$friendshtml2 = $friendshtml2 . '<li class="friend active">' . $friend['name'] . '</li>';
-		$activefriendmob = $friend['mob'];
-		$activefriendname = $friend['name'];
-		$name = $friend['user'];
+	
+	if ($friendmob != '') {
+		if ($friend['mob'] == $friendmob) {
+			$friendshtml2 = $friendshtml2 . '<li id="' . $friend['mob'] . '" class="friend active">' . $friend['name'] . '</li>';
+			$activefriendmob = $friend['mob'];
+			$activefriendname = $friend['name'];
+			$name = $friend['user'];
+		} else {
+			$friendshtml2 = $friendshtml2 .  '<li id="' . $friend['mob'] . '" class="friend inactive">' . $friend['name'] . '</li>';
+		}
 	} else {
-		$friendshtml2 = $friendshtml2 .  '<li class="friend inactive">' . $friend['name'] . '</li>';
+		$friendcount++;
+		if ($friendcount == 1) {
+			$friendshtml2 = $friendshtml2 . '<li id="' . $friend['mob'] . '" class="friend active">' . $friend['name'] . '</li>';
+			$activefriendmob = $friend['mob'];
+			$activefriendname = $friend['name'];
+			$name = $friend['user'];
+		} else {
+			$friendshtml2 = $friendshtml2 .  '<li id="' . $friend['mob'] . '" class="friend inactive">' . $friend['name'] . '</li>';
+		}
 	}
 }
 
@@ -75,6 +88,14 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 		      if(e.keyCode==13)
 		      $('.inputbutton').click();
 		    });
+
+
+			$( ".friend.inactive" ).click(function() {
+				friendmob = $(this).attr('id');
+				//console.log(friendmob);
+				window.location.href = "./chat.php?friendmob=" + friendmob;
+			});
+
 
 			$( ".inputbutton" ).click(function() {
 				message = $('.messageinput').val();
