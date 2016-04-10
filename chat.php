@@ -106,7 +106,7 @@ $chathtml = file_get_contents($domain . "/getallmsgs.php?mob1=" . $mob . "&mob2=
 				chathtml = $('#chat-content').html();
 
 				$.get( "/getallmsgs.php?mob1=" + mob + "&mob2=" + activefriendmob + "&name=" + name + "&activefriendname=" + activefriendname + "&lastupdated=" + lastupdated, function( data ) {
-					if (data == '0') {
+					if (data == '') {
 						// Do nothing
 					} else {
 						$('#chat-content').html(chathtml + data);

@@ -23,11 +23,11 @@ $accounts = array(
         'mob' => '0431055404',
         'pin' => '6427'
     ),
-    array(
-        'name' => 'Kat',
-        'mob' => '0412319312',
-        'pin' => '5764'
-    ),
+    // array(
+    //     'name' => 'Kat',
+    //     'mob' => '0412319312',
+    //     'pin' => '5764'
+    // ),
     array(
         'name' => 'Charlie',
         'mob' => '0419854780',
@@ -41,26 +41,26 @@ $friendslist = array(
         'name' => 'Rob',
         'mob' => '0431055404',
         'friends' => array(
-    		array(
-				'name' => 'Kat',
-        		'mob' => '0412319312'
-    		),
+    // 		array(
+				// 'name' => 'Kat',
+    //     		'mob' => '0412319312'
+    // 		),
     		array(
 				'name' => 'Chum',
         		'mob' => '0419854780'
     		)        		
         )
     ),
-    array(
-        'name' => 'Kat',
-        'mob' => '0412319312',
-        'friends' => array(
-    		array(
-				'name' => 'Rob',
-        		'mob' => '0431055404'
-    		)
-    	)
-    ),
+    // array(
+    //     'name' => 'Kat',
+    //     'mob' => '0412319312',
+    //     'friends' => array(
+    // 		array(
+				// 'name' => 'Rob',
+    //     		'mob' => '0431055404'
+    // 		)
+    // 	)
+    // ),
     array(
         'name' => 'Charlie',
         'mob' => '0419854780',

@@ -53,7 +53,7 @@ if ($result->num_rows > 0) {
         array_push($getallmsgs, $record);
     }
 } else {
-    echo "0";
+    echo "";
 }
 $conn->close();
 
